@@ -1,0 +1,212 @@
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[CompanyRegisterTable]    Script Date: 04/02/2022 14:44:36 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[CompanyRegisterTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OrganisationName] [nvarchar](50) NULL,
+	[OrganisationWebsite] [nvarchar](50) NULL,
+	[OrganisationMail] [nvarchar](50) NULL,
+	[OrganisationAddress] [nvarchar](max) NULL,
+	[State] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Pincode] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL,
+	[OrganisationLogo] [image] NULL,
+	[ContentType] [nvarchar](50) NULL,
+	[CertificateCopporation] [varbinary](max) NULL,
+	[ContentTypeCC] [nvarchar](50) NULL,
+	[CertificateCopporationFile] [nvarchar](50) NULL,
+	[OrganisationPAN] [varbinary](max) NULL,
+	[ContentTypeOP] [nvarchar](50) NULL,
+	[OrganisationPANFile] [nvarchar](50) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[ContactTable]    Script Date: 04/02/2022 14:44:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ContactTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Subject] [nvarchar](50) NULL,
+	[Message] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[JobsTable]    Script Date: 04/02/2022 14:44:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[JobsTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[JobTitle] [nvarchar](50) NULL,
+	[NumberofPost] [int] NULL,
+	[Description] [nvarchar](max) NULL,
+	[Qualification] [nvarchar](50) NULL,
+	[Experience] [nvarchar](50) NULL,
+	[Specialization] [nvarchar](50) NULL,
+	[LastDateApply] [date] NULL,
+	[Salary] [decimal](18, 2) NULL,
+	[JobType] [nvarchar](50) NULL,
+	[EmailId] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[JobTypeTable]    Script Date: 04/02/2022 14:44:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[JobTypeTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[JobTypeName] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[LoginTable]    Script Date: 04/02/2022 14:45:00 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[LoginTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmailId] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL,
+	[UserType] [char](1) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[RegisterTable]    Script Date: 04/02/2022 14:45:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RegisterTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[MotherName] [nvarchar](50) NULL,
+	[FatherName] [nvarchar](50) NULL,
+	[Address] [nvarchar](50) NULL,
+	[Gender] [nvarchar](50) NULL,
+	[State] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[DOB] [date] NULL,
+	[Pincode] [nvarchar](50) NULL,
+	[EmailId] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[UserTable]    Script Date: 04/02/2022 14:45:09 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[UserTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[MobileNumber] [nvarchar](10) NULL,
+	[Gender] [nvarchar](8) NULL,
+	[DateOfBirth] [date] NULL,
+	[Address] [nvarchar](max) NULL,
+	[Password] [nvarchar](10) NULL,
+	[ProfileImage] [varbinary](max) NULL,
+	[ContentType] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [OnlineJobPortal]
+GO
+
+/****** Object:  Table [dbo].[ApplyJobTable]    Script Date: 04/02/2022 14:45:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ApplyJobTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[JobId] [nvarchar](50) NULL,
+	[UserEmail] [nvarchar](50) NULL,
+	[Resume] [varbinary](max) NULL,
+	[ContentType] [nvarchar](50) NULL,
+	[FileName] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
